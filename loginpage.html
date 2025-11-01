@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SheIsMe Login Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="h-screen flex justify-center items-center bg-gradient-to-br from-pink-200 via-pink-300 to-pink-600">
+
+  <div class="bg-white w-80 sm:w-96 p-8 rounded-2xl shadow-2xl text-center">
+    
+    <!-- 🌸 Logo -->
+    <img src="../S (1).png" alt="SheIsMe Logo" class="w-28 mx-auto mb-4 rounded-md">
+
+    <!-- 💕 Title -->
+    <h1 class="text-3xl font-bold text-pink-700 mb-1 tracking-wide">SheIsMe</h1>
+    <p class="text-gray-500 text-sm mb-6">Fashion blooms your style</p>
+
+    <!-- 📝 Login Form -->
+    <form id="loginForm" class="space-y-4">
+      <input 
+        id="userId"
+        type="text" 
+        placeholder="Enter User ID" 
+        required
+        class="w-full px-4 py-2 border border-pink-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-pink-500"
+      >
+      <input 
+        id="password"
+        type="password" 
+        placeholder="Enter Password" 
+        required
+        class="w-full px-4 py-2 border border-pink-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-pink-500"
+      >
+      
+      <!-- 🔒 Login Button -->
+      <button 
+        type="submit" 
+        class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg transition duration-300">
+        Login
+      </button>
+    </form>
+
+    <!-- 🔗 Links -->
+    <div class="mt-4 space-y-2">
+      <a href="#" class="block text-sm text-blue-800 hover:text-pink-500 transition">Forgot Password?</a>
+      <a href="#" class="block text-sm text-blue-800 hover:text-pink-500 transition">Create New Account</a>
+    </div>
+  </div>
+
+  <!-- ✅ Script for validation, storing login state, and redirect -->
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault(); // stop default reload
+      
+      const userId = document.getElementById("userId").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (userId === "" || password === "") {
+        alert("Please fill in all fields before logging in.");
+        return;
+      }
+
+      // 🌟 Store login status in session
+      sessionStorage.setItem("login", "true");
+
+      // 🌸 Redirect to home page
+      window.location.href = "./index.html";
+    });
+  </script>
+
+</body>
+</html>

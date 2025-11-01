@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SheIsMe - Women's Fashion Style</title>
+
+<!-- ✅ Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff7fb;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="flex justify-between items-center bg-pink-100 p-4 rounded-b-xl shadow-md">
+  <div class="flex items-center gap-3">
+    <img src="./assets/logo.png" alt="Logo" class="w-12 h-12 rounded-full">
+    <h1 class="text-2xl font-semibold text-pink-700">SheIsMe</h1>
+  </div>
+
+  <!-- 🔍 Search -->
+  <div class="flex gap-2">
+    <input id="search-input" type="text" placeholder="Search styles, brands..." class="px-3 py-2 rounded-lg outline-none w-64 border border-pink-300">
+    <button id="search-btn" class="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700 transition">Search</button>
+  </div>
+
+  <ul class="flex gap-6 items-center text-gray-700">
+    <li class="hover:text-pink-600 cursor-pointer"><i class="fa-solid fa-house"></i> Home</li>
+    <li class="hover:text-pink-600 cursor-pointer">
+      <a class="fa-solid fa-bag-shopping" href="bag.html"> Bag</a>
+    </li>
+    <!-- 👇 Login/Profile Icon -->
+    <li id="login-profile-icon" class="hover:text-pink-600 cursor-pointer">
+      <a class="fa-solid fa-user" href="loginpage.html"> Login</a>
+    </li>
+  </ul>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="flex p-8 gap-8">
+
+  <!-- 🩷 SIDEBAR -->
+  <aside class="w-60 bg-pink-50 p-5 rounded-lg shadow-md">
+    <h3 class="text-pink-700 font-semibold mb-3 text-lg">Categories</h3>
+     <ul class="space-y-2 mb-6 text-gray-700">
+      <li><a href="/index.html" class="hover:text-pink-600 flex items-center gap-2"><i class="fa-solid fa-bag-shopping"></i> All</a></li>
+      <li><a href="top.html" class="hover:text-pink-600 flex items-center gap-2"><i class="fa-solid fa-shirt"></i> Tops</a></li>
+      <li><a href="t-shirt.html" class="hover:text-pink-600 flex items-center gap-2"><i class="fa-solid fa-tshirt"></i> T-Shirts</a></li>
+      <li><a href="partywear.html" class="hover:text-pink-600 flex items-center gap-2"><i class="fa-solid fa-cocktail"></i> Partywear</a></li>
+      <li><a href="Jumpsuits.html" class="hover:text-pink-600 flex items-center gap-2"><i class="fa-solid fa-person-running"></i> Jumpsuits</a></li>
+      <li><a href="officewear.html" class="hover:text-pink-600 flex items-center gap-2"><i class="fa-solid fa-briefcase"></i> Officewear</a></li>
+      <li><a href="jeans.html" class="hover:text-pink-600 flex items-center gap-2"><i class="fa-solid fa-suitcase"></i> Jeans</a></li>
+    </ul>
+
+<!-- 💋 Style Pick-Me-Ups -->
+<div id="pickup-box" class="mt-8 p-4 bg-pink-100 rounded-xl text-center shadow-sm">
+  <h4 class="text-pink-700 font-semibold mb-2">💋 Style Pick-Me-Up</h4>
+  <p id="pickup-line" class="text-gray-700 text-sm italic">Loading...</p>
+</div>
+
+<script>
+  const pickupLines = [
+  "You don’t need filters — your vibe’s already aesthetic ✨",
+  "Warning: That outfit might cause compliments 😍",
+  "Mirror called — it said you’re slaying today 👑",
+  "Confidence looks gorgeous on you 💖",
+  "You’re not shopping, you’re upgrading your sparkle ✨",
+  "Slay now, brunch later ☕👗",
+  "Cute? Check. Classy? Double check. 💅",
+  "You’re the main character, dress like it 🎬💃",
+  "Too glam to give a damn 💋",
+  "Outfits change. Your aura doesn’t ✨",
+  "Born to express, not to impress 💫",
+  "Make them stop and stare — then smile 😉",
+  "Your wardrobe just whispered ‘thank you’ 😍",
+  "Fashion is art — and you’re the masterpiece 🎨",
+  "Keep shining, trendsetter 🌟",
+  "If elegance was a person… it’d be you 💐",
+  "Your confidence is the best accessory 👠",
+  "Outfit of the day? More like mood of the year 😘",
+  "Buy it. Life’s too short for boring clothes 👗",
+  "You didn’t choose fashion — fashion chose you 💕"
+];
+
+  document.getElementById("pickup-line").textContent =
+    pickupLines[Math.floor(Math.random() * pickupLines.length)];
+</script>
+
+
+  <!-- 💎 Sponsored Section -->
+<div class="mt-8 p-4 bg-white rounded-xl shadow-md text-center border border-pink-200">
+  <h4 class="text-pink-700 font-semibold mb-1">💎 Sponsored</h4>
+  <p class="text-sm text-gray-700">Glow like never before with <span class="text-pink-600 font-semibold">Sparkle Essence</span> — pure beauty, pure you 💖</p>
+  <a href="#" class="inline-block mt-2 text-sm text-white bg-pink-500 px-3 py-1 rounded-lg hover:bg-pink-600">Shop Now</a>
+</div>
+
+    
+    
+  </aside>
+
+  <!-- 🛍️ PRODUCTS GRID -->
+  <main class="flex-1">
+    <h2 class="text-3xl font-semibold text-pink-700 mb-6">Our Latest Collection</h2>
+    <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+    <p id="not-found" class="hidden text-center text-gray-500 text-lg mt-10">No products found 😔</p>
+  </main>
+</div>
+
+<script>
+  // ✅ Handle login state and profile click
+  function updateLoginProfileIcon() {
+    const isLoggedIn = sessionStorage.getItem("login");
+    const iconContainer = document.getElementById("login-profile-icon");
+
+    if (isLoggedIn === "true") {
+      // Show profile icon with logout feature
+      iconContainer.innerHTML = `
+        <a id="profile-link" class="fa-solid fa-user-circle cursor-pointer"> User</a>
+      `;
+
+      // Add click event for sign out
+      const profileLink = document.getElementById("profile-link");
+      profileLink.addEventListener("click", () => {
+        const confirmLogout = confirm("Do you want to sign out?");
+        if (confirmLogout) {
+          sessionStorage.removeItem("login");
+          alert("You have been signed out successfully!");
+          updateLoginProfileIcon(); // refresh icon
+        }
+      });
+
+    } else {
+      // Show login icon
+      iconContainer.innerHTML = `
+        <a class="fa-solid fa-user" href="loginpage.html"> Login</a>
+      `;
+    }
+  }
+
+  // ✅ Check login status on page load
+  window.addEventListener("DOMContentLoaded", updateLoginProfileIcon);
+
+
+  // ✅ Example product data (shortened for demo)
+  const products = [
+  // 🌸 DRESSES
+  { image: "../assets/download (1).jpg", name: "Floral Summer Dress", discounted: 899, original: 1000, category: "Dress" },
+  { image: "../assets/WhatsApp Image 2025-10-22 at 9.22.31 PM.jpeg", name: "Brown Bodycon Dress", discounted: 1299, original: 2399, category: "Dress" },
+  { image: "../assets/WhatsApp Image 2025-10-23 at 9.11.05 AM.jpeg", name: "Velvet Blue Dress", discounted: 1499, original: 2999, category: "Dress" },
+  { image: "../assets/download (2).jpg", name: "Elegant Black Gown", discounted: 1499, original: 1999, category: "Gown" },
+  { image: "../assets/download (3).jpg", name: "Denim Long Dress", discounted: 1199, original: 1499, category: "Dress" },
+  { image: "../assets/download (4).jpg", name: "Boho Maxi Dress", discounted: 2999, original: 3299, category: "Dress" },
+  { image: "../assets/download (5).jpg", name: "Classic Brown Bodycon", discounted: 1599, original: 2799, category: "Dress" },
+  { image: "../assets/Chic Dark Gray Denim A-Line Mini Dress with Ruffles 🌿.jpg", name: "Dark Gray Denim Mini Dress", discounted: 1599, original: 2799, category: "Dress" },
+  { image: "../assets/Discover stylish summer looks with long shorts….jpg", name: "Striped Casual Blue Shirt", discounted: 899, original: 1099, category: "Shirt" },
+  { image: "../assets/double layer kurti with lace _ kurta set.jpg", name: "Light Blue Mini Dress", discounted: 999, original: 1599, category: "Dress" },
+  { image: "../assets/Flowy Slit Skirt & Crop Top for a Warm Portugal Day.jpg", name: "Brown Long Shirt", discounted: 799, original: 1009, category: "Shirt" },
+  { image: "../assets/download (12).jpg", name: "Brown Stylish Top", discounted: 2399, original: 3999, category: "Top" },
+  { image: "../assets/download (20).jpg", name: "Crochet Stylish Top", discounted: 2399, original: 3999, category: "Top" },
+
+  // 👚 TOPS
+  { image: "../assets/Basic Fashion.jpeg", name: "Purple Stylish Top", discounted: 1099, original: 2999, category: "Top" },
+  { image: "../assets/ChicMe_ Women's Fashion Online Shopping.jpeg", name: "Women's Stylish Short Top", discounted: 1099, original: 2999, category: "Top" },
+  { image: "../assets/download (1).jpeg", name: "Stylish Short Top", discounted: 1099, original: 2999, category: "Top" },
+  { image: "../assets/download (16).jpg", name: "Stylish Butterfly Top", discounted: 1099, original: 2999, category: "Top" },
+  { image: "../assets/Elenzga New Arrival Textured Fabric French Elegant Bowknot Tie Strap Camisole Vest, Chic Design For Spring & Summer Vacation.jpeg", name: "Yellow Bow Tie Chiffon Top", discounted: 1099, original: 2999, category: "Top" },
+  { image: "../assets/download.jpeg", name: "Fashionable Saree Top", discounted: 1099, original: 2999, category: "Top" },
+  { image: "../assets/Instagram post by Pinstudio 핀스튜디오 • Aug 7, 2019 at 9_19am UTC.jpg", name: "White Crop Top", discounted: 1099, original: 2999, category: "Top" },
+  { image: "../assets/MOLDE EM PDF BLUSA ELEGÂNCIA SERENA.jpeg", name: "New Franclia Sleeveless Lace Top", discounted: 1099, original: 2999, category: "Top" },
+  { image: "../assets/Women's Elegant Floral 3D Print Long Sleeve Fitted Red T-Shirt, Suitable For Spring_Autumn, New Year, Valentine's Day.jpeg", name: "Women's Elegant Floral Red Top", discounted: 1099, original: 2999, category: "Top" },
+
+  // 👕 T-SHIRTS
+  { image: "../assets/Color Block T-shirt With Star Print And Raglan Sleeve.jpeg", name: "Purple Stylish Top", discounted: 1099, original: 2999, category: "T-shirt" },
+  { image: "../assets/Color Blocking Raglan Sleeve Cat Printed Casual T-Shirt Graphic Tees Women Tops.jpeg", name: "Women's Stylish Short Top", discounted: 1099, original: 2999, category: "T-shirt" },
+  { image: "../assets/Aesthetic.jpeg", name: "Stylish Short Top", discounted: 1099, original: 2999, category: "T-shirt" },
+  { image: "../assets/download (4).jpeg", name: "Stylish Butterfly Top", discounted: 1099, original: 2999, category: "T-shirt" },
+  { image: "../assets/download (5).jpeg", name: "Yellow Bow Tie Chiffon Top", discounted: 1099, original: 2999, category: "T-shirt" },
+  { image: "../assets/download (6).jpeg", name: "Fashionable Saree Top", discounted: 1099, original: 2999, category: "T-shirt" },
+  { image: "../assets/download (3).jpeg", name: "White Crop Top", discounted: 1099, original: 2999, category: "T-shirt" },
+  { image: "../assets/How To Style An Oversized T-Shirt [15+ Ways] - That Grateful Soul.jpeg", name: "Georgette Pearl Crop Top", discounted: 1099, original: 2999, category: "T-shirt" },
+  { image: "../assets/Woven with Style_ Embroidery on Knitwear.jpeg", name: "New Franclia Sleeveless Lace Top", discounted: 1099, original: 2999, category: "T-shirt" },
+  { image: "../assets/☼.jpeg", name: "Women's Elegant Floral Red Top", discounted: 1099, original: 2999, category: "T-shirt" },
+
+  // 🎉 PARTYWEAR
+  { image: "../assets/download (16).jpeg", name: "Purple Stylish Top", discounted: 1099, original: 2999, category: "Partywear" },
+  { image: "../assets/luxo de vestido.jpeg", name: "Women's Stylish Short Top", discounted: 1099, original: 2999, category: "Partywear" },
+  { image: "../assets/download (15).jpeg", name: "Stylish Short Top", discounted: 1099, original: 2999, category: "Partywear" },
+  { image: "../assets/download (14).jpeg", name: "Stylish Butterfly Top", discounted: 1099, original: 2999, category: "Partywear" },
+  { image: "../assets/download (13).jpeg", name: "Yellow Bow Tie Chiffon Top", discounted: 1099, original: 2999, category: "Partywear" },
+  { image: "../assets/download (12).jpeg", name: "Fashionable Saree Top", discounted: 1099, original: 2999, category: "Partywear" },
+  { image: "../assets/download (11).jpeg", name: "White Crop Top", discounted: 1099, original: 2999, category: "Partywear" },
+  { image: "../assets/download (10).jpeg", name: "Georgette Pearl Crop Top", discounted: 1099, original: 2999, category: "Partywear" },
+  { image: "../assets/download (9).jpeg", name: "New Franclia Sleeveless Lace Top", discounted: 1099, original: 2999, category: "Partywear" },
+  { image: "../assets/Top Trendy Christmas Outfit Ideas for 2024.jpeg", name: "Women's Elegant Floral Red Top", discounted: 1099, original: 2999, category: "Partywear" },
+
+  // 🩱 JUMPSUITS
+  { image: "../assets/download (20).jpeg", name: "Purple Stylish Jumpsuit", discounted: 1099, original: 2999, category: "Jumpsuits" },
+  { image: "../assets/download (21).jpeg", name: "Women's Stylish Short Jumpsuit", discounted: 1099, original: 2999, category: "Jumpsuits" },
+  { image: "../assets/download (22).jpeg", name: "Stylish Short Jumpsuit", discounted: 1099, original: 2999, category: "Jumpsuits" },
+  { image: "../assets/jumpsuit.jpeg", name: "Stylish Butterfly Jumpsuit", discounted: 1099, original: 2999, category: "Jumpsuits" },
+  { image: "../assets/Sexy Solid Color Asymmetric Turtleneck Jumpsuit.jpeg", name: "Asymmetric Turtleneck Jumpsuit", discounted: 1099, original: 2999, category: "Jumpsuits" },
+  { image: "../assets/download (17).jpeg", name: "Elegant Solid Jumpsuit", discounted: 1099, original: 2999, category: "Jumpsuits" },
+  { image: "../assets/download (18).jpeg", name: "White Crop Jumpsuit", discounted: 1099, original: 2999, category: "Jumpsuits" },
+  { image: "../assets/Women's & Men's Clothing, Shop Online Fashion _ SHEIN.jpeg", name: "Georgette Pearl Jumpsuit", discounted: 1099, original: 2999, category: "Jumpsuits" },
+  { image: "../assets/download (19).jpeg", name: "Franclia Sleeveless Lace Jumpsuit", discounted: 1099, original: 2999, category: "Jumpsuits" },
+  { image: "../assets/SHEIN USA.jpeg", name: "Women's Elegant Floral Jumpsuit", discounted: 1099, original: 2999, category: "Jumpsuits" },
+
+  // 💼 OFFICEWEAR
+  { image: "../assets/Elegant Rust & Neutrals for Workwear _ Neutros Elegantes con Toque Satinado.jpeg", name: "Purple Stylish Top", discounted: 1099, original: 2999, category: "Officewear" },
+  { image: "../assets/download (28).jpeg", name: "Women's Stylish Short Top", discounted: 1099, original: 2999, category: "Officewear" },
+  { image: "../assets/download (27).jpeg", name: "Stylish Short Top", discounted: 1099, original: 2999, category: "Officewear" },
+  { image: "../assets/https___t_me_clothes_models.jpeg", name: "Stylish Butterfly Top", discounted: 1099, original: 2999, category: "Officewear" },
+  { image: "../assets/download (24).jpeg", name: "Yellow Bow Tie Chiffon Top", discounted: 1099, original: 2999, category: "Officewear" },
+  { image: "../assets/download (25).jpeg", name: "Fashionable Saree Top", discounted: 1099, original: 2999, category: "Officewear" },
+  { image: "../assets/download (26).jpeg", name: "White Crop Top", discounted: 1099, original: 2999, category: "Officewear" },
+  { image: "../assets/download (23).jpeg", name: "Georgette Pearl Crop Top", discounted: 1099, original: 2999, category: "Officewear" },
+  { image: "../assets/Monochrome Mocha Power Look.jpeg", name: "New Franclia Sleeveless Lace Top", discounted: 1099, original: 2999, category: "Officewear" },
+  { image: "../assets/download (20).jpeg", name: "Women's Elegant Floral Red Top", discounted: 1099, original: 2999, category: "Officewear" },
+
+  // 👖 JEANS
+  { image: "../assets/1.jpeg", name: "Purple Stylish Top", discounted: 1099, original: 2999, category: "Jeans" },
+  { image: "../assets/Women's Ombre Wide Leg Denim Pants.jpeg", name: "Women's Ombre Wide Leg Denim", discounted: 1099, original: 2999, category: "Jeans" },
+  { image: "../assets/Women's Fashionable Loose Long Denim Pants With Frayed Lace-Up Waistband.jpeg", name: "Loose Long Denim Pants", discounted: 1099, original: 2999, category: "Jeans" },
+  { image: "../assets/download (35).jpeg", name: "Stylish Butterfly Jeans", discounted: 1099, original: 2999, category: "Jeans" },
+  { image: "../assets/download (36).jpeg", name: "Yellow Tie Chiffon Jeans", discounted: 1099, original: 2999, category: "Jeans" },
+  { image: "../assets/download (37).jpeg", name: "Fashionable Saree Jeans", discounted: 1099, original: 2999, category: "Jeans" },
+  { image: "../assets/Women's Casual Style Harajuku Y2K Wide Leg Jeans Vintage High Waist Loose Blue Pants 2024 Winter.jpeg", name: "Vintage High Waist Wide Leg Jeans", discounted: 1099, original: 2999, category: "Jeans" },
+  { image: "../assets/download (31).jpeg", name: "Pearl Crop Denim", discounted: 1099, original: 2999, category: "Jeans" },
+  { image: "../assets/download (35).jpeg", name: "Franclia Sleeveless Lace Denim", discounted: 1099, original: 2999, category: "Jeans" },
+  { image: "../assets/download (33).jpeg", name: "Women's Elegant Floral Jeans", discounted: 1099, original: 2999, category: "Jeans" }
+];
+
+
+  const productList = document.getElementById("product-list");
+  const notFound = document.getElementById("not-found");
+
+  // ✅ Render products
+  function renderProducts(filtered) {
+    if (filtered.length === 0) {
+      productList.innerHTML = "";
+      notFound.classList.remove("hidden");
+    } else {
+      notFound.classList.add("hidden");
+      productList.innerHTML = filtered.map((p, index) => `
+        <div class="bg-white rounded-xl shadow hover:shadow-lg transition text-center p-4 relative">
+          <img src="${p.image}" alt="${p.name}" class="mx-auto w-3/4 h-64 object-cover rounded">
+          <span class="absolute top-3 left-3 bg-pink-600 text-white text-xs px-2 py-1 rounded-full">${p.category}</span>
+          <h4 class="text-pink-700 font-semibold mt-3">${p.name}</h4>
+          <p class="text-gray-600 text-sm mb-2">₹${p.discounted} <del class="text-gray-400 ml-1">₹${p.original}</del></p>
+          <button class="buy-btn bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 mt-1 rounded-lg" data-index="${index}">
+            Add to Cart
+          </button>
+        </div>
+      `).join("");
+    }
+  }
+
+  renderProducts(products);
+
+  // ✅ Search functionality
+  document.getElementById("search-btn").addEventListener("click", () => {
+    const query = document.getElementById("search-input").value.toLowerCase();
+    const filtered = products.filter(p => p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
+    renderProducts(filtered);
+  });
+
+  document.getElementById("search-input").addEventListener("keyup", (e) => {
+    if (e.key === "Enter") document.getElementById("search-btn").click();
+  });
+
+  // ✅ Save product data in localStorage
+  localStorage.setItem('productData', JSON.stringify(products));
+</script>
+
+</body>
+</html>

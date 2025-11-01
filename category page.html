@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tops - SheIsMe</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff7fb;
+  margin: 0;
+  padding: 0;
+}
+.header {
+  background-color: rgb(232, 208, 224);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+.header h1 {
+  color: #c2185b;
+}
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 25px;
+  padding: 40px;
+}
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: 0.3s;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+}
+.product-card img {
+  width: 80%;
+  height: 250px;
+  object-fit: cover;
+}
+.product-info h4 {
+  color: #c2185b;
+}
+.buy-btn {
+  background-color: #c2185b;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.buy-btn:hover {
+  background-color: #ff4081;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>SheIsMe - Tops Collection</h1>
+  <a href="index.html" style="color:#c2185b; text-decoration:none; font-weight:bold;">← Back to Home</a>
+</div>
+
+<div class="products">
+
+  <div class="product-card">
+    <img src="../download (12).jpg" alt="Brown Top">
+    <div class="product-info">
+      <h4>Brown Stylish Top</h4>
+      <p>₹2,399 <span style="text-decoration:line-through; color:gray;">₹3,999</span></p>
+      <p>★★★★☆ (456)</p>
+      <button class="buy-btn">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <img src="../download (20).jpg" alt="Crochet Top">
+    <div class="product-info">
+      <h4>Crochet Stylish Top</h4>
+      <p>₹2,399 <span style="text-decoration:line-through; color:gray;">₹3,999</span></p>
+      <p>★★★★☆ (321)</p>
+      <button class="buy-btn">Add to Cart</button>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
